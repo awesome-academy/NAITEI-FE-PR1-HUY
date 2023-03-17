@@ -1,0 +1,52 @@
+mixin topbar(currentPage)
+    -const topbarItems = [{"name":'Tài khoản của tôi',"href":"#"},{"name":'Trạng thái đơn hàng',"href":"#"},{"name":'Danh sách ưa thích',"href":"#"},{"name":'Đăng nhập',"href":"#"},{"name":'Đăng ký',"href":"#"}];
+    ul.topbar__list.col-lg-7.col-md-12        
+        each item in topbarItems
+            li.topbar__item
+                a("href"= item.href)= item.name
+    .topbar__search.col-lg-4.col-md-12
+        form
+            input(type="text",placeholder="Tìm kiếm ở đây")
+            button(aria-label="Search button")
+                i.bx.bx-search-alt-2
+
+mixin navigation(currentPage)
+    -const navItems = [{name:"Trang chủ",href:"#"},{name:"Rượu vang đỏ",href:"#"},{name:"Rượu trắng",href:"#"},{name:"Champange",href:"#"},{name:"Thông tin",href:"#"},{name:"Blog",href:"#"},{name:"Liên hệ",href:"#"}];
+    -const itemCol1 = {title:'Rượu ngoại',list:[{text:'Rượu chivas',href:'../pages/detail/detail.html'},{text:'Rượu Walker',href:'!#'},{text:'Rượu Quế',href:'!#'},{text:'Rượu Tequilla',href:'!#'},{text:'Rượu Treva',href:'!#'}]};
+    input#menuToggle.nav__toggle(type='checkbox')
+    label.nav__icon(for='menuToggle')
+        i.bx.bx-list-ul
+    ul.nav__menu.col-lg-10
+        each item in navItems 
+            -const check = item.name.toString() == 'Rượu vang đỏ'
+            if !check 
+                li.nav__menu--item 
+                    a(href= item.href)= item.name
+            else 
+                li.nav__menu--item 
+                    label.nav__dropdown--icon(for='wineToggle')= item.name
+                    input#wineToggle.nav__dropdown--toggle(type='checkbox')
+                    nav.nav__dropdown.nav__dropdown--container
+                        .nav__dropdown--content
+                            .nav__dropdown--box
+                                +navCol(itemCol1)
+                            .nav__dropdown--box
+                                +navCol(itemCol1)
+                            .nav__dropdown--box
+                                +navCol(itemCol1)
+                            .nav__dropdown--box
+                                .nav__dropdown--img 
+                                    img(src='../../../assets/gallery-2.jpg',alt='').img-fluid
+
+mixin navCol(obj)
+    h3.nav__dropdown--head= obj.title
+    ul.nav__dropdown--col
+        each item in obj.list
+            li.nav__dropdown--link 
+                a(href=item.href)= item.text 
+
+mixin footerCol(obj)
+    h3.footer__head= obj.title
+    if block   
+        block
+
