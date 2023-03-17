@@ -1,0 +1,30 @@
+.header {
+    font-size: 12px;
+    position: relative;
+    &__bg {
+        position: relative;
+        background-image: url('../../../assets/slide-1.jpg');
+        height: 100%;
+
+        z-index: -5;
+        background-size: cover;
+        background-position: center;
+    }
+
+    &__title {
+        position: absolute;
+        top: 20%;
+        font-family: 'Dancing Script', cursive;
+        color: var(--color-white);
+        width: 100%;
+        letter-spacing: 2px;
+        text-align: center;
+
+        &--big {
+            font-size: 180px;
+        }
+        &--small {
+            font-size: 80px;
+        }
+    }
+}
