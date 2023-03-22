@@ -12,7 +12,7 @@
     &__info {
         color: var(--color-gray);
         margin: 5px 0;
-        &-item:not(:last-child):after {
+        &__item:not(:last-child):after {
             content: '|';
             padding: 0 5px;
         }

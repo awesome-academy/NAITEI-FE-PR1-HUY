@@ -17,7 +17,7 @@
         transition: all 0.3s;
 
         background-color: var(--color-black);
-        &--box {
+        &__box {
             padding: 6px 10px;
             & > * {
                 font-size: 12px;
@@ -46,7 +46,7 @@
         font-size: 21px;
         line-height: 31px;
         color: var(--color-primary);
-        &--discount {
+        &__discount {
             margin-left: 7px;
             color: var(--color-gray);
             text-decoration: line-through;

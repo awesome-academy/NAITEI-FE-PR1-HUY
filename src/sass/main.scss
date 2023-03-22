@@ -1,4 +1,4 @@
-@import 'base/base';
+@import 'base/reset';
 @import './abstract/variables';
 @import 'components/topbar';
 
@@ -11,6 +11,9 @@
 @import 'components/blog';
 
 //
+@import 'components/about';
+@import 'components/breadcrumb';
+
 @import 'layout/header';
 @import 'layout/navigation';
 @import 'layout/footer';

@@ -37,7 +37,7 @@
     }
 
     &__author {
-        &--avatar {
+        &__avatar {
             display: block;
             width: 102px;
             height: 102px;
@@ -47,12 +47,12 @@
             border-radius: 10px;
             margin-bottom: 17px;
         }
-        &--name {
+        &__name {
             font-weight: 400;
             font-size: 14px;
             line-height: 16px;
         }
-        &--job {
+        &__job {
             color: var(--color-title-desc);
             font-size: 12px;
             font-style: italic;
@@ -69,7 +69,7 @@
             height: 6px;
             border-radius: 50%;
 
-            &:nth-child(1) {
+            &:first-child {
                 background-color: var(--color-primary);
             }
         }

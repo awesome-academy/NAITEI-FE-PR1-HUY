@@ -71,7 +71,7 @@
         transform: translate(-50%, -20%);
         z-index: 999;
 
-        &--img {
+        &__img {
             display: flex;
             justify-content: center;
             height: 471px;
@@ -84,7 +84,7 @@
             }
         }
 
-        &--detail {
+        &__detail {
             margin-left: -150px;
             width: 274px !important;
 
@@ -103,7 +103,7 @@
                 margin-top: 6px;
             }
         }
-        &--price {
+        &__price {
             font-style: italic;
             font-weight: 400;
             font-size: 34px !important;
@@ -144,19 +144,19 @@
 
         padding: 10px 0;
 
-        &--number {
+        &__number {
             font-weight: 400;
             font-size: 34px !important;
             line-height: 31px;
         }
 
-        &--unit {
+        &__unit {
             font-size: 17px !important;
         }
     }
 
     &__time {
-        &--box {
+        &__box {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(2, 1fr);

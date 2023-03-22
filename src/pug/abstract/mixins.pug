@@ -1,131 +1,159 @@
-mixin topbar(currentPage)
-    -const topbarItems = [{"name":'Tài khoản của tôi',"href":"#"},{"name":'Trạng thái đơn hàng',"href":"#"},{"name":'Danh sách ưa thích',"href":"#"},{"name":'Đăng nhập',"href":"#"},{"name":'Đăng ký',"href":"#"}];
-    ul.topbar__list.col-lg-7.col-md-12        
-        each item in topbarItems
-            li.topbar__item
-                a("href"= item.href)= item.name
-    .topbar__search.col-lg-4.col-md-12
-        form
-            input(type="text",placeholder="Tìm kiếm ở đây")
-            button(aria-label="Search button")
-                i.bx.bx-search-alt-2
+mixin topbar
+  - let topbarItems = [{"name":'Tài khoản của tôi',"href":"#"},{"name":'Trạng thái đơn hàng',"href":"#"},{"name":'Danh sách ưa thích',"href":"#"},{"name":'Đăng nhập',"href":"#"},{"name":'Đăng ký',"href":"#"}];
+  ul.topbar__list.col-lg-7.col-md-12 
+    |
+    each item in topbarItems
+      li.topbar__item
+        a(href=item.href)= item.name
+  .topbar__search.col-lg-4.col-md-12
+    form
+      input(type="text", placeholder="Tìm kiếm ở đây")
+      button(aria-label="Search button")
+        i.bx.bx-search-alt-2
 
-mixin navigation(currentPage)
-    -const navItems = [{name:"Trang chủ",href:"#"},{name:"Rượu vang đỏ",href:"#"},{name:"Rượu trắng",href:"#"},{name:"Champange",href:"#"},{name:"Thông tin",href:"#"},{name:"Blog",href:"#"},{name:"Liên hệ",href:"#"}];
-    -const itemCol1 = {title:'Rượu ngoại',list:[{text:'Rượu chivas',href:'../pages/detail/detail.html'},{text:'Rượu Walker',href:'!#'},{text:'Rượu Quế',href:'!#'},{text:'Rượu Tequilla',href:'!#'},{text:'Rượu Treva',href:'!#'}]};
-    input#menuToggle.nav__toggle(type='checkbox')
-    label.nav__icon(for='menuToggle')
-        i.bx.bx-list-ul
-    ul.nav__menu.col-lg-10
-        each item in navItems 
-            -const check = item.name.toString() == 'Rượu vang đỏ'
-            if !check 
-                li.nav__menu--item 
-                    a(href= item.href)= item.name
-            else 
-                li.nav__menu--item 
-                    label.nav__dropdown--icon(for='wineToggle')= item.name
-                    input#wineToggle.nav__dropdown--toggle(type='checkbox')
-                    nav.nav__dropdown.nav__dropdown--container
-                        .nav__dropdown--content
-                            .nav__dropdown--box
-                                +navCol(itemCol1)
-                            .nav__dropdown--box
-                                +navCol(itemCol1)
-                            .nav__dropdown--box
-                                +navCol(itemCol1)
-                            .nav__dropdown--box
-                                .nav__dropdown--img 
-                                    img(src='../../../assets/gallery-2.jpg',alt='').img-fluid
+mixin navigation
+  - let navItems = [{name:"Trang chủ",href:"../index.html"},{name:"Rượu vang đỏ",href:"#"},{name:"Rượu trắng",href:"#"},{name:"Champange",href:"#"},{name:"Thông tin",href:"./pages/about.html"},{name:"Blog",href:"#"},{name:"Liên hệ",href:"./pages/contact.html"}];
+  - let itemCol1 = {title:'Rượu ngoại',list:[{text:'Rượu chivas',href:'!#'},{text:'Rượu Walker',href:'!#'},{text:'Rượu Quế',href:'!#'},{text:'Rượu Tequilla',href:'!#'},{text:'Rượu Treva',href:'!#'}]};
+  form.nav__form(action="")
+    input#menuToggle.nav__toggle(type="checkbox") 
+  label.nav__icon(for="menuToggle") 
+    |
+    i.bx.bx-list-ul
+  ul.nav__menu.col-lg-10
+    each item in navItems 
+      - let check = item.name.toString() == "Rượu vang đỏ";
+      if !check
+        li.nav__menu__item 
+          |
+          a(href=item.href)= item.name
+      else
+        li.nav__menu__item 
+          |
+          label.nav__dropdown__icon(for="wineToggle")= item.name
+          input#wineToggle.nav__dropdown__toggle(type="checkbox")
+          nav.nav__dropdown.nav__dropdown__container
+            .nav__dropdown__content
+              .nav__dropdown__box
+                +navCol(itemCol1)
+              .nav__dropdown__box
+                +navCol(itemCol1) 
+              .nav__dropdown__box
+                +navCol(itemCol1)
+              .nav__dropdown__box
+                .nav__dropdown__img 
+                  |
+                  img.img-fluid(src="../../../assets/gallery-2.jpg", alt="gallery-img")
 
 mixin navCol(obj)
-    h3.nav__dropdown--head= obj.title
-    ul.nav__dropdown--col
-        each item in obj.list
-            li.nav__dropdown--link 
-                a(href=item.href)= item.text 
+  h3.nav__dropdown__head= obj.title
+  ul.nav__dropdown__col
+    each item in obj.list
+      li.nav__dropdown__link 
+        |
+        a(href=item.href)= item.text
 
 mixin button(obj)
-    if obj.text
-        button.btn(class= obj.class)= obj.text
-    else 
-        button.btn(class= obj.class)
-            block
+  if obj.text
+    button.btn(class=obj.class)= obj.text
+  else
+    button.btn(class=obj.class)
+      block
 
-        each item in navItems 
-            li.nav-menu-item 
-                a(href= item.href)= item.name
+    each item in navItems 
+      li.nav__menu__item 
+        |
+        a(href=item.href)= item.name
 
-mixin specialProduct(obj) 
-    .special__time 
-        p.special__time--number= obj.num
-        p.special__time--unit= obj.unit
+mixin specialProduct(obj)
+  .special__time 
+    |
+    p.special__time__number= obj.num
+    p.special__time__unit= obj.unit
 
 mixin sectionHeading(text)
-    .intro__heading
-        h2.intro__title= text
-        img(src='../../../assets/title-dark.png',alt='gioi thieu')
+  .intro__heading
+    h2.intro__title= text
+    img(src="../../../assets/title-dark.png", alt="gioi thieu")
 
 mixin productCard(obj)
-    -const isSale = obj.isSale != null
-    .product__card 
-        .product__img     
-            if isSale
-                .special-sale 
-                    img(src=obj.img,alt='').img-fluid
-                    span= obj.text
-            else 
-                img(src=obj.img,alt='').img-fluid
-            .product__quick 
-                .product__quick--box 
-                    i.bx.bx-heart
-                    span Yêu thích 
-                .product__quick--box 
-                    i.bx.bx-bar-chart
-                    span So sánh  
-        .product__info 
-            h3.product__name= obj.name
-            .product__price 
-                span.product__price--main= obj.price
-                if obj.discount
-                    span.product__price--discount= obj.discount
-            button.btn.product__btn ADD TO CART            
+  - let isSale = obj.isSale != null;
+  .product__card 
+    |
+    .product__img 
+      |
+      if isSale
+        .special-sale 
+          |
+          img.img-fluid(src=obj.img, alt="anh san pham moi")
+          span= obj.text
+      else
+        img.img-fluid(src=obj.img, alt="khong co san pham moi")
+      .product__quick 
+        |
+        .product__quick__box 
+          |
+          i.bx.bx-heart
+          span Yêu thích
+        .product__quick__box 
+          |
+          i.bx.bx-bar-chart
+          span So sánh
+    .product__info 
+      |
+      h3.product__name= obj.name
+      .product__price 
+        |
+        span.product__price__main= obj.price
+        if obj.discount
+          span.product__price--discount= obj.discount
+      button.btn.product__btn ADD TO CART
 
 mixin productDisplay(obj)
-    section.container-fluid(class=obj.class)
-    .container
-        +sectionHeading(obj.title)
-        .row.gx-5.my-3
-            each item in obj.wine 
-                .col-lg-3.col-md-4.col-sm-6
-                    +productCard(item)
+  section.container-fluid(class=obj.class)
+  .container
+    +sectionHeading(obj.title)
+    .row.gx-5.my-3
+      each item in obj.wine 
+        .col-lg-3.col-md-4.col-sm-6
+          +productCard(item)
 
 mixin blogItem(obj)
-    .blog 
-        .blog__img 
-            img(src=obj.img,alt='').img-fluid
-        h3.blog__title= obj.title
-        .blog-info  
-            span.blog__info--item= `Đăng bởi ${obj.author}`
-            span.blog__info--item= obj.time
-            - const comment = `${obj.num} Bình luận`
-            span.blog__info--item= comment
-        p.blog__desc= obj.desc
-        a.blog__more(href="#") Read more
+  .blog 
+    |
+    .blog__img 
+      |
+      img.img-fluid(src=obj.img, alt="")
+    h3.blog__title= obj.title
+    .blog__info 
+      |
+      span.blog__info__item= `Đăng bởi ${obj.author}`
+      span.blog__info__item= obj.time
+      - let comment = `${obj.num} Bình luận`;
+      span.blog__info__item= comment
+    p.blog__desc= obj.desc
+    a.blog__more(href="#") Read more
 
 mixin footerCol(obj)
-    h3.footer__head= obj.title
-    if block   
-        block
-
-
-mixin title(obj)
-    h2.text-uppercase= obj.text
-    img(src=`${assets}titleleft-dark.png`,alt='Rượu vang champange')
-
+  h3.footer__head= obj.title
+  if block
+    block
 
 mixin contactInfo(obj)
-    each item in obj.items 
-        p.contact__info 
-            span.contact__icon(class= item.icon )
-            span.contact__text= item.text 
+  each item in obj.items 
+    p.contact__info 
+      |
+      span.contact__icon(class=item.icon) 
+      span.contact__text= item.text
+
+mixin breadcrumb(obj)
+  .container-fluid
+    .container.my-4 
+      |
+      .row.gx-5
+        ul.breadcrumb__list 
+          |
+          each item in obj.list
+            if item == obj.active
+              li.breadcrumb__item.breadcrumb__item--active= item
+            else
+              li.breadcrumb__item= item
