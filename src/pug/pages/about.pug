@@ -1,0 +1,11 @@
+extends ../base/layout
+
+block customHead
+  link(rel="stylesheet", href="../../sass/main.css")
+  title Giới thiệu
+
+block content
+  include ../layout/topbar
+  include ../layout/navigation
+  include ./about/main
+
