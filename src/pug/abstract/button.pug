@@ -1,0 +1,7 @@
+mixin button(obj)
+  if obj.text
+    button.btn(class=obj.class)= obj.text
+  else
+    button.btn(class=obj.class)
+      block
+

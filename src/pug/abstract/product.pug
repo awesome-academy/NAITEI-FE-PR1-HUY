@@ -1,0 +1,47 @@
+mixin productCard(obj)
+  - let isSale = obj.isSale != null;
+  .product__card 
+    |
+    .product__img 
+      |
+      if isSale
+        .special-sale 
+          |
+          img.img-fluid(src=obj.img, alt="anh san pham moi")
+          span= obj.text
+      else
+        img.img-fluid(src=obj.img, alt="khong co san pham moi")
+      .product__quick 
+        |
+        .product__quick__box 
+          |
+          i.bx.bx-heart
+          span Yêu thích
+        .product__quick__box 
+          |
+          i.bx.bx-bar-chart
+          span So sánh
+    .product__info 
+      |
+      h3.product__name= obj.name
+      .product__price 
+        |
+        span.product__price__main= obj.price
+        if obj.discount
+          span.product__price--discount= obj.discount
+      button.btn.product__btn ADD TO CART
+
+mixin productDisplay(obj)
+  section.container-fluid(class=obj.class)
+  .container
+    +sectionHeading(obj.title)
+    .row.gx-5.my-3
+      each item in obj.wine 
+        .col-lg-3.col-md-4.col-sm-6
+          +productCard(item)
+
+mixin specialProduct(obj)
+  .special__time 
+    |
+    p.special__time__number= obj.num
+    p.special__time__unit= obj.unit

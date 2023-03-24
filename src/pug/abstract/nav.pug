@@ -1,0 +1,40 @@
+mixin navigation
+  - const navItems = [{name:"Trang chủ",href:"../index.html"},{name:"Rượu vang đỏ",href:"#"},{name:"Rượu trắng",href:"#"},{name:"Champange",href:"#"},{name:"Thông tin",href:"./pages/about.html"},{name:"Blog",href:"#"},{name:"Liên hệ",href:"./pages/contact.html"}];
+  - const itemCol1 = {title:'Rượu ngoại',list:[{text:'Rượu chivas',href:'!#'},{text:'Rượu Walker',href:'!#'},{text:'Rượu Quế',href:'!#'},{text:'Rượu Tequilla',href:'!#'},{text:'Rượu Treva',href:'!#'}]};
+  form.nav__form(action="")
+    input#menuToggle.nav__toggle(type="checkbox") 
+  label.nav__icon(for="menuToggle") 
+    |
+    i.bx.bx-list-ul
+  ul.nav__menu.col-lg-10
+    each item in navItems 
+      - let check = item.name.toString() == "Rượu vang đỏ";
+      if !check
+        li.nav__menu__item 
+          |
+          a(href=item.href)= item.name
+      else
+        li.nav__menu__item 
+          |
+          label.nav__dropdown__icon(for="wineToggle")= item.name
+          input#wineToggle.nav__dropdown__toggle(type="checkbox")
+          nav.nav__dropdown.nav__dropdown__container
+            .nav__dropdown__content
+              .nav__dropdown__box
+                +navCol(itemCol1)
+              .nav__dropdown__box
+                +navCol(itemCol1) 
+              .nav__dropdown__box
+                +navCol(itemCol1)
+              .nav__dropdown__box
+                .nav__dropdown__img 
+                  |
+                  img.img-fluid(src="../../../assets/gallery-2.jpg", alt="gallery-img")
+
+mixin navCol(obj)
+  h3.nav__dropdown__head= obj.title
+  ul.nav__dropdown__col
+    each item in obj.list
+      li.nav__dropdown__link 
+        |
+        a(href=item.href)= item.text

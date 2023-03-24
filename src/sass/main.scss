@@ -4,15 +4,19 @@
 
 //home
 @import 'components/intro';
-@import 'components/special';
+@import 'components/home-special';
 @import 'components/gallery';
 @import 'components/product';
-@import 'components/info';
-@import 'components/blog';
+@import 'components/home-info';
+@import 'components/home-blog';
 
 //
 @import 'components/about';
 @import 'components/breadcrumb';
+
+//
+@import 'components/form';
+@import 'components/contact';
 
 @import 'layout/header';
 @import 'layout/navigation';

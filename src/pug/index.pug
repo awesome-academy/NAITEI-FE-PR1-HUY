@@ -1,17 +1,1 @@
-extends ./base/layout
-
-block customHead
-  link(rel="stylesheet", href="../sass/main.css")
-
-block content
-  include ./layout/topbar
-  include ./layout/header
-  include ./layout/navigation
-
-  //- home
-  include ./pages/home/introduction
-  include ./pages/home/special-product
-  include ./pages/home/news-product
-  include ./pages/home/gallery
-  include ./pages/home/hot-product
-  include ./pages/home/home-info
+include ./pages/home/home

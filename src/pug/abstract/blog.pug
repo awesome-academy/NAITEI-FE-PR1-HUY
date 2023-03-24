@@ -1,0 +1,15 @@
+mixin blogItem(obj)
+  .blog 
+    |
+    .blog__img 
+      |
+      img.img-fluid(src=obj.img, alt="")
+    h3.blog__title= obj.title
+    .blog__info 
+      |
+      span.blog__info__item= `Đăng bởi ${obj.author}`
+      span.blog__info__item= obj.time
+      - let comment = `${obj.num} Bình luận`;
+      span.blog__info__item= comment
+    p.blog__desc= obj.desc
+    a.blog__more(href="#") Read more

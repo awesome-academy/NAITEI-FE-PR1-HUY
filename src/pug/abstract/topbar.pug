@@ -1,0 +1,12 @@
+mixin topbar
+  - const topbarItems = [{"name":'Tài khoản của tôi',"href":"#"},{"name":'Trạng thái đơn hàng',"href":"#"},{"name":'Danh sách ưa thích',"href":"#"},{"name":'Đăng nhập',"href":"#"},{"name":'Đăng ký',"href":"#"}];
+  ul.topbar__list.col-lg-7.col-md-12 
+    |
+    each item in topbarItems
+      li.topbar__item
+        a(href=item.href)= item.name
+  .topbar__search.col-lg-4.col-md-12
+    form
+      input(type="text", placeholder="Tìm kiếm ở đây")
+      button(aria-label="Search button")
+        i.bx.bx-search-alt-2
