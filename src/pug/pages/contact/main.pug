@@ -1,0 +1,38 @@
+include ../../abstract/breadcrumb
+include ../../abstract/form
+include ../../abstract/contact
+include ../../abstract/button
+
+- const bread = { active: 'Liên hệ', list: ['Trang chủ', 'Liên hệ'] };
+- const fields = [{id:'name',label:'Your Name',type:'text'},{id:'email',label:'Your Email',type:'email'},{id:'subject',label:'Subject',type:'text'}]
+- const items = [{icon:"bx bx-location-plus",text:"Tòa nhà Hà Nội group 442 Đội Cấn, phường Cống Vị, quận Ba Đình, Hà Nội"},{icon:"bx bxs-phone",text:"+0123456789"},{icon:"bx bx-envelope",text:"dinh huy@gmail.com"}];
+- const social = ['bx bxl-facebook-circle','bx bxl-google-plus-circle','bx bxl-instagram-alt','bx bxl-twitter']
+
++breadcrumb(bread)
+
+.container-fluid 
+    .container 
+        .row.gx-5
+            .col-lg-12 
+                h2.contact__title LIÊN HỆ
+                img.img-fluid(src="../../../../assets/titleleft-dark.png", alt="Rượu vang champange")
+            .col-lg-9.col-md-12.my-5
+                .contact__img 
+                    img(src='../../../../assets/map.png',alt='map').img-fluid
+                +form(fields)
+                .row.gx-0.form--control
+                    .col-lg-2.gx-0
+                        label(for='desc').form__label Your Message
+                    .col-lg-10.gx-0
+                        textarea(rows="5", id='desc', disabled='disabled').form__textArea
+                        +button({text: 'GỬI', class: 'form__btn'})
+            .col-lg-3.col-md-12.my-5
+                .contact__info 
+                    .contact__head 
+                        h3 Wine House 
+                        h4 Since 1980
+                    +contactInfo(items)
+                    .contact__social 
+                        p Follow us 
+                        each item in social 
+                            span(class=item)
