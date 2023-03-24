@@ -1,6 +1,6 @@
-mixin form(obj)
+mixin form(fields)
     form(action="")
-        each item in obj.fields
+        each item in fields
             .row.gx-0.form--control
                 .col-lg-2.gx-0
                     label(for=item.id).form__label= item.label 
