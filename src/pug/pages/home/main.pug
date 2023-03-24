@@ -1,0 +1,79 @@
+include ../../abstract/blog
+include ../../abstract/section-heading 
+include ../../abstract/product
+include ../../abstract/button
+
+section.container-fluid.section__intro 
+  img.intro__img(src="../../../../assets/bg-intro.jpg", alt="gioi thieu")
+  .container.gx-5 
+    .intro__heading 
+      +sectionHeading('Giới thiệu')
+      p.intro__desc Mriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui faciteorum claritatem. Investigtiones demonstraverunt lectores legere me lius quod ii legunt saepius.Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putam
+      +button({text:"Xem thêm",class:"intro__btn"})
+
+section.container-fluid.section__special
+  - const timeBox = [{num:334,unit:'Ngày'},{num:24,unit:'Giờ'},{num:25,unit:'Phút'},{num:06,unit:'Giây'}];
+  .container
+    .row.gx-5
+      .col-lg-12.special__container
+        .special__bg
+          img.img-fluid(
+            src="../../../../assets/special-product.jpg",
+            alt="Rượu vang champange"
+          )
+        .special__product
+          .special__product__img.col-lg-7.col-md-12
+            .special__sale 
+              img.img-fluid(
+                src="../../../../assets/special-product-img.jpg",
+                alt="Rượu vang champange"
+              )
+              span SALE
+          .special__product__detail.col-lg-5.col-md-12
+            h2 Chi tiết sản phẩm
+            img(
+              src="../../../../assets/titleleft-dark.png",
+              alt="Rượu vang champange"
+            )
+            p.special__product__price 330000
+            +button({text:'Add to cart',class:'special__btn'})
+            p.special__product__desc Một hợp chất có trong rượu vang được gọi là resveratro có khả năng làm tăng tối đa tuổi thọ. Resveratro còn có khả năng ngăn chặn mật độ oxy hoá của protein béo.
+            .special__time__box 
+              each item in timeBox 
+                +specialProduct(item) 
+
+- const wines = [{name:'Rượu vang đà lạt',price:3200.000,discount:490.000,img:'../../../../assets/5.jpg'},{name:'Rượu vang đà lạt',price:3200.000,discount:490.000,img:'../../../../assets/7.jpg'},{name:'Rượu vang đà lạt',price:3200.000,discount:490.000,img:'../../../../assets/3.jpg'},{name:'Rượu vang đà lạt',price:3200.000,discount:490.000,img:'../../../../assets/4.jpg'}]
++productDisplay({wine:wines,class:"section__news",title:"Sản phẩm mới"})
+
+section.section__gallery.container-fluid.gx-0 
+  - const images = [{ img: "../../../../assets/gallery-1.jpg" }, { img: "../../../../assets/gallery-2.jpg" }, { img: "../../../../assets/gallery-3.jpg" }, { img: "../../../../assets/gallery-4.jpg" }, { img: "../../../../assets/gallery-5.jpg" }, { img: "../../../../assets/gallery-6.jpg" }, { img: "../../../../assets/gallery-7.jpg" }, { img: "../../../../assets/gallery-8.jpg" }];
+  .gallery__container
+    each item in images 
+      .gallery__item 
+        img(src=item.img, alt="ruou vang")
+
+section.section__info.container-fluid 
+  - const blog = { title: "Vang thăng long classic", img: "../../../../assets/gallery-2.jpg", author: "Giang", time: "30/12/2015", num: 60, desc: "Vang nổ Thăng Long có hương vị đặc trưng của sản phẩm lên men tự nhiên từ hoa quả với độ rượu nhẹ, bọt ga đầy trắng mịn. Vang Nổ thăng long" };
+  .container 
+    .row.gx-5
+      .col-lg-8.col-md-12
+        +sectionHeading('Tin tức & Blog')
+        .row.my-5
+          .col-lg-6
+            +blogItem(blog)
+          .col-lg-6
+            +blogItem(blog)
+      .col-lg-4.col-md-12
+        +sectionHeading('Khách hàng')
+        .my-5.info__container 
+          span.info__quote
+            i.bx.bxs-quote-alt-left
+          p.info__desc Vang nổ Thăng Long có hương vị đặc trưng của sản phẩm lên men tự nhiên từ hoa quả với độ rượu nhẹ, bọt ga đầy trắng mịn.
+          .info__author 
+            .info__author__avatar
+            p.info__author__name GIANG
+            p.info__author__job Graphic Designer
+          .info__dots 
+            span
+            span
+            span

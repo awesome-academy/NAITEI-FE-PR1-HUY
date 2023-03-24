@@ -1,0 +1,43 @@
+include ../abstract/footer
+
+footer.footer.container-fluid
+    - const asset = [{img:'../../../../assets/brand-1-rm.png'},{img:'../../../../assets/brand-2-rm.png'},{img:'../../../../assets/brand-3-rm.png'}];
+    - const info = [{desc:'về chúng tôi',href:'#'},{desc:'giao hàng',href:'#'},{desc:'cảm nghĩ',href:'#'},{desc:'lưu trữ',href:'#'},{desc:'chính sách riêng tư',href:'#'}];
+    - const shop = [{desc:'vận chuyển và trả hàng',href:'#'},{desc:'mua hàng an toàn',href:'#'},{desc:'vận quốc tế',href:'#'},{desc:'liên kết',href:'#'},{desc:'dịch vụ',href:'#'}];
+    .container 
+        .row.gx-5 
+            each item in asset
+                .col-lg-4.col-md-12.footer__brand 
+                    img(src=item.img).img-fluid
+        .row.gx-5.footer__main
+            .col-lg-2 
+                +footerCol({title:'Thông tin'})
+                    each item in info
+                        a(href=item.href).footer__link= item.desc
+            .col-lg-2 
+                +footerCol({title:'Mua hàng'})
+                    each item in shop
+                        a(href=item.href).footer__link= item.desc
+            .col-lg-4
+                +footerCol({title:'Gửi email'})
+                    p.footer__mail Gửi email cho chúng tôi để được hỗ trợ
+                    form
+                        input.footer__input(placeholder='Email...')
+                        input(type='submit',value='Gửi').btn.footer-btn
+                    .footer__social
+                        i.bx.bxl-facebook
+                        i.bx.bxl-youtube
+                        i.bx.bxl-instagram
+                        i.bx.bxl-whatsapp
+
+            .col-lg-4 
+                +footerCol({title:'Liên hệ'})
+                    p.footer__address 
+                        i.bx.bx-location-plus
+                        ='123 đường ABC,Hà nội ,Việt Nam'
+                    p.footer__address
+                        i.bx.bx-phone 
+                        ='84123456789'
+                    p.footer__address
+                        i.bx.bx-envelope 
+                        ='abc@example.com'

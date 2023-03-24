@@ -1,11 +1,15 @@
-extends ../../base/layout
+extends ../../layout/layout
 
-block customHead 
-    link(rel="stylesheet", href="../sass/main.css")
-
+block customHead
+  title Trang chu 
+  
 block content
-    include ../../layout/topbar
-    include ../../layout/header
-    include ../../layout/navigation
+  include ../../components/topbar
+  include ../../components/header
+  include ../../components/navigation
+
+  include ./main
+
+
 
 
