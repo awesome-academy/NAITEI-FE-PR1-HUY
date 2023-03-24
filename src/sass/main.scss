@@ -1,7 +1,9 @@
 @import 'base/reset';
 @import './abstract/variables';
 @import 'components/topbar';
-
+@import 'layout/header';
+@import 'layout/navigation';
+@import 'layout/footer';
 //home
 @import 'components/intro';
 @import 'components/home-special';
@@ -17,9 +19,5 @@
 //
 @import 'components/form';
 @import 'components/contact';
-
-@import 'layout/header';
-@import 'layout/navigation';
-@import 'layout/footer';
 
 @import 'page/home';
