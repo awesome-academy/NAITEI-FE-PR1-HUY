@@ -1,0 +1,5 @@
+mixin contactInfo(obj)
+  each item in obj.items 
+    p.contact__info 
+      span.contact__icon(class=item.icon) 
+      span.contact__text= item.text

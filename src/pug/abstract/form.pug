@@ -1,0 +1,11 @@
+mixin form(obj)
+    form(action="")
+        each item in obj.fields
+            .row.gx-0.form--control
+                .col-lg-2.gx-0
+                    label(for=item.id).form__label= item.label 
+                .col-lg-10.gx-0
+                    input(type=item.type,id=item.id,value=item.value,class=item.classInput,name=item.value, disabled='disabled').form__input          
+
+
+
