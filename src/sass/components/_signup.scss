@@ -1,0 +1,14 @@
+.signup {
+    &__title {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    &__btn {
+        display: flex;
+        justify-content: flex-end;
+        gap: 20px;
+    }
+    &__radio {
+        font-weight: 600;
+    }
+}

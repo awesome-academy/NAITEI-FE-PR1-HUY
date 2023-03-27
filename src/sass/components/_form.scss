@@ -1,4 +1,8 @@
 .form {
+    &__container {
+        padding: 20px 100px !important;
+        border: 2px solid var(--color-black);
+    }
     &--control {
         margin: 15px 0;
         padding: 0 !important;
@@ -6,7 +10,10 @@
     &__label {
         padding: 0 !important;
     }
-
+    &__title {
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
     &__input,
     &__textArea {
         width: 100%;

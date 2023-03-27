@@ -1,0 +1,18 @@
+.form {
+    &__container {
+        .form__input {
+            background-color: var(--color-white);
+        }
+    }
+}
+
+.login {
+    &__title {
+        margin-bottom: 10px;
+        font-size: 24px;
+    }
+    &__btn {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
