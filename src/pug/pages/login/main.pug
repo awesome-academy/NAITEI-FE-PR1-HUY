@@ -1,0 +1,33 @@
+include ../../abstract/breadcrumb
+include ../../abstract/form
+include ../../abstract/button
+
+- const bread = {active:'Đăng nhập',list:['Trang chủ','Đăng nhập']};
+- const fields = [{id:'email',label:'Email *',type:'email'},{id:'password',label:'Password *',type:'password'}];
+
++breadcrumb(bread) 
+
+.container-fluid.my-3 
+  .container 
+    .row.gx-5 
+      .col-lg-10 
+        h2.login__title ĐĂNG NHẬP
+        img.img-fluid(src="../../../../assets/titleleft-dark.png", alt="Rượu vang champange")
+      .col-lg-2.login__btn
+        +button({text: 'Đăng ký', class: 'form__btn'})
+      .col-lg-12.my-3
+        .form__container 
+          h3.form__title KHÁCH HÀNG ĐĂNG NHẬP 
+          p Nếu bạn có tài khoản vui lòng đăng nhập 
+            +form(fields)
+          .row.gx-0.form--control
+            .col-lg-2.gx-0             
+            .col-lg-10.gx-0
+              input(type="radio", id="radio", disabled)
+              label(for="radio") Quên mật khẩu
+          .row.gx-0.form--control.signup__btn
+            .col-lg-2.gx-0             
+            .col-lg-10.gx-0
+              +button({text: 'Đăng nhập', class: 'form__btn'})
+          
+
