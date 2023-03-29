@@ -1,0 +1,8 @@
+mixin rating(stars) 
+  if Number.isInteger(stars)
+    - for (let i=0;i<stars;i++)
+      i.bx.bxs-star
+  else 
+    - for (let i=0;i<Math.floor(stars);i++)
+      i.bx.bxs-star
+    i.bx.bxs-star-half

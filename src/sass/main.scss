@@ -1,5 +1,6 @@
 @import 'base/reset';
 @import './abstract/variables';
+@import './abstract/flex';
 @import 'components/topbar';
 @import 'layout/header';
 @import 'layout/navigation';
@@ -25,5 +26,11 @@
 @import 'components/signup';
 
 //
+@import 'components/select';
+@import 'components/feature';
+@import 'components/quantity';
+//
+@import 'components/history';
 @import 'page/404';
+@import 'page/detail';
 @import 'page/home';

@@ -1,0 +1,21 @@
+.quantity {
+    &__box {
+        display: flex;
+        align-items: center;
+    }
+
+    &__btn {
+        width: 29px;
+        height: 29px;
+        outline: none;
+        border: none;
+        color: var(--color-detail-review);
+    }
+    &__input {
+        width: 60px;
+        height: 29px;
+        outline: none;
+        padding-left: 12px;
+        text-align: center;
+    }
+}
