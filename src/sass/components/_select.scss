@@ -1,0 +1,9 @@
+.select {
+    padding: 5px 12px;
+    outline: none;
+    &__item {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18px;
+    }
+}

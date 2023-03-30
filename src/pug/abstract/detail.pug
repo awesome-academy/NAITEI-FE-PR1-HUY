@@ -1,0 +1,33 @@
+mixin detailSlide(listImg)
+    .detail__slide 
+        span.detail__slide__btn
+            i.bx.bx-up-arrow-alt
+        each item in listImg
+            if item.active
+                .detail__slide__img.detail__slide__img--active
+                    img(src=item.img,alt='ruou vang').img-fluid
+            else 
+                .detail__slide__img
+                    img(src=item.img,alt='ruou vang').img-fluid
+        span.detail__slide__btn 
+            i.bx.bx-down-arrow-alt
+        
+mixin selectOptions(list)
+    select.select
+        each item in list
+            option(value=item).select__item= item
+
+
+mixin quantityInput
+    form.quantity__box
+        button.quantity__btn -
+        input.quantity__input(type='number' name='qty' min=1 value='1')
+        button.quantity__btn +
+
+mixin btnIcon
+    - const icons = [{text:"Yêu thích",icon:"bx bxs-heart"},{text:"So sánh",icon:"bx bx-bar-chart"},{text:"Email",icon:"bx bxs-envelope"}]
+    .detail__icon
+        each item in icons 
+            .detail__icon__box 
+                i(class=item.icon)
+                span= item.text 
