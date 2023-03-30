@@ -1,0 +1,63 @@
+.history {
+    &__main {
+        background-color: var(--color-topbar);
+        padding: 15px 25px;
+    }
+
+    &__title {
+        font-size: 18px;
+        text-transform: uppercase;
+        &--big {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+    }
+    &__status {
+        &__list {
+            @include flex($align: center, $wrap: wrap, $gap: 5px 10px);
+            list-style-type: none;
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        &__item {
+            &:not(:last-child)::after {
+                content: '|';
+                margin: 0px 8px;
+            }
+        }
+    }
+
+    &__table {
+        width: 100%;
+        margin-top: 10px;
+        text-align: center;
+        th {
+            text-transform: uppercase;
+            border: 2px solid var(--color-topbar);
+        }
+        td {
+            text-align: center;
+            border: 2px solid var(--color-topbar);
+
+            & > span {
+                display: block;
+                margin: 3px 0;
+            }
+        }
+    }
+
+    &__customer {
+        background-color: var(--color-topbar);
+        padding: 15px 25px;
+
+        &__icon {
+            margin-right: 5px;
+        }
+
+        a {
+            text-decoration: underline !important;
+            color: var(--color-black);
+        }
+    }
+}

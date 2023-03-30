@@ -1,0 +1,28 @@
+include ../../abstract/breadcrumb
+include ../../abstract/contact
+include ../../abstract/table
+
+- const bread  = {active:'Danh sách đơn hàng',list:['Trang chủ','Danh sách đơn hàng']};
+- const details = ['Trạng thái đơn hàng (16)','Đã huỷ (10)','Chưa duyệt (10)','Đã duyệt (0)','Đã thanh toán chưa mua hàng (0)','Chưa mua hàng (0)','Hàng đã về - chờ giao hàng (0)','Đã kết thúc (6)']
+- const items = [{icon:"bx bxs-user",text:"GiangLe Leanhgiang89@gmail.com"},{icon:"bx bxs-location-plus",text:"Tòa nhà Hà Nội group 442 Đội Cấn"},{icon:"bx bxs-phone",text:"+0123456789"}]
+
++breadcrumb(bread)
+
+.container-fluid 
+    .container 
+        .row.gx-5
+            .col-lg-12 
+              h2.history__title--big ĐƠN HÀNG
+              img.img-fluid(src="../../../../assets/titleleft-dark.png", alt="Rượu vang champange")
+            .col-lg-9.col-md-12.my-5
+                .history__main 
+                    h3.history__title Danh sách đơn hàng 
+                    ul.history__status__list 
+                        each item in details 
+                            li.history__status__item= item 
+                +table
+            .col-lg-3.col-md-12.my-5 
+                .history__customer 
+                    h3.history__title Thông tin khách hàng 
+                    +contactInfo(items)
+                    a(href='#') Chi tiết địa chỉ
