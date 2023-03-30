@@ -1,0 +1,23 @@
+- const data = {codeBill: 'LEANHGIANG89',storage: 'Hà Đông',datePay: '30/12/2015',num: 7,sum: 120000,status: 'Giao hàng'};
+- const thead = ['STT','Mã hoá đơn và ngày mua hàng','Kho nhận hàng','Số SP','Tổng tiền','Tình trạng','Thao tác'];
+
+mixin table
+  table(cellspacing="0").history__table
+    thead 
+      tr 
+        each item in thead 
+          th= item 
+    tbody 
+      each index in [1,2,3,4,5]
+        +tableRow(index)
+
+mixin tableRow(num)
+  tr 
+    td= `${num}`
+    td
+      span= `${data.codeBill}-${data.datePay}`  
+    td= data.storage 
+    td= data.num 
+    td= data.sum 
+    td= data.status 
+    td Chi tiết
