@@ -1,0 +1,19 @@
+mixin paginationType(isGrid)
+    .pagination__type 
+        if isGrid
+            a.bx.bxs-grid.pagination__type--active
+            a.bx.bx-list-ul
+        else 
+            a.bx.bxs-grid
+            a.bx.bx-list-ul.pagination__type--active
+
+mixin pagination(num)
+    ul.pagination__list
+        i.bx.bx-chevron-left
+        each item,i in Array(num)
+            li.pagination__list__item= i+1
+        i.bx.bx-chevron-right
+
+
+
+    

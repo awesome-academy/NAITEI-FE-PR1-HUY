@@ -1,0 +1,35 @@
+include ./detail
+
+mixin listProduct(obj)
+    h3.product__sidebar__title= obj.title
+    ul.product__sidebar__list 
+        each item in obj.list
+            li.product__sidebar__item
+                a= item.text 
+                    span= `(${item.num})`
+
+mixin listTag(obj)
+    ul.tag__list
+        each item in obj
+            if item.isActive 
+                li.tag__item.tag__item--active= item.text
+            else 
+                li.tag__item= item.text
+
+mixin productListCard(obj)
+    .product__list__card 
+        .col-lg-4
+            .product__list__img
+                img(src=obj.img,alt='').img-fluid
+        .col-lg-8
+            .product__list__info
+                .product__list__name= obj.name
+                .product__list__price= obj.price
+                .product__list__desc= obj.desc
+                .product__list__group 
+                    +button({text:'Add to cart',class:'product__list__btn'})
+                    +btnIcon
+
+mixin title(text)
+    h2.text--uppercase= text 
+    img.img-fluid(src="../../../../assets/titleleft-dark.png", alt="Rượu vang champange")

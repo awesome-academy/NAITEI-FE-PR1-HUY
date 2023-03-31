@@ -1,0 +1,47 @@
+.product__list {
+    &__card {
+        @include flex($align: center);
+        margin-top: 25px;
+    }
+
+    &__name {
+        font-size: 25px;
+        line-height: 31px;
+        color: var(--color-product);
+    }
+
+    &__price {
+        color: var(--color-primary);
+        font-size: 34px;
+        line-height: 31px;
+        margin: 15px 0;
+    }
+
+    &__desc {
+        font-size: 13px;
+        line-height: 18px;
+    }
+
+    &__group {
+        @include flex($align: center, $gap: 0 20px);
+    }
+
+    &__btn {
+        padding: 10px 20px !important;
+        margin-top: 18px;
+        background-color: var(--color-black);
+        color: var(--color-white);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-align: center;
+        border: none;
+        outline: none;
+        border-radius: 1px;
+        &:hover {
+            background-color: var(--color-primary);
+        }
+    }
+}
