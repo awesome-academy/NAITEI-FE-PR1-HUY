@@ -1,0 +1,19 @@
+include ./categories
+
+- const sidebarList = [{title:'Rượu Champange',list:[{text:'Rượu chivas',num:12},{text:'Rượu Walker',num:50},{text:'Rượu Quế',num:50},{text:'Rượu Tequilla',num:33},{text:'Rượu Treva',num:50}]},{title:'Rượu Ngoại',list:[{text:'Rượu chivas',num:12},{text:'Rượu Walker',href:'!#',num:50},{text:'Rượu Quế',num:50},{text:'Rượu Tequilla',num:33},{text:'Rượu Treva',num:50}]}]
+- const tags = [{text:'Đồng hồ',isActive:true},{text:'Tủ'},{text:'Quần áo'},{text:'Nước hoa'},{text:'Thời trang nữ'}]
+
+mixin sidebar
+    aside.product__sidebar 
+        .product__sidebar__head
+            +title('Danh sách sản phẩm')
+        each list in sidebarList
+            +listProduct(list)
+        .product__sidebar__head
+            +title('So sánh sản phẩm')
+        p Bạn chưa có sản phẩm nào để so sánh
+        .product__sidebar__head
+            +title('Tag sản phẩm') 
+        +listTag(tags)
+        img(src='../../../../assets/all-2.jpg').img-fluid
+    
